@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+            <label>
+                <input type="checkbox" id="c"> Este es mi primer checkbox</input>
+                <input type="text" id="miInput" name="miInput"></input>
+            </label>
+    </div>
+    <script>
+
+        //EJERCICIO 01
+        /**
+ * Crear un input de tipo checkbox.
+ * Escribir una funcion "toggleChecked" que 
+ * cambie el estado de clickeado a sin 
+ * clickear o viceversa.
+ */
+        const toggleChecked = ()=>{
+
+/* vos tenes que buscar la forma de llamar al elemento checkbox, 
+para eso tenes que usar los buscadores y utilizas el que mas facil te resulte.
+vos tenes que hacer dos versiones, una por si el checbox esta en TRUE y otra por si esta en false,
+asi cuando invoques la funcion, de ambas formas va a chequear o deschequear, no solo una alternativa
+
+*/
+            if(document.getElementById("c").checked==true){
+                document.getElementById("c").checked=false;
+            }else{
+                document.getElementById("c").checked=true;
+            }
+    
+        };
+// EJERCICIO 02
+/*
+* Dado el siguiente HTML
+*
+* <input type="text" id="miInput" name="miInput"></input>
+* cambiar el atributo name a miExInput
+*/     
+
+    const cambiar = ()=>{
+
+        let cambiar_atributo = document.getElementById("miInput");
+        cambiar_atributo.name = "miExInput";
+
+    }
+
+
+    </script>
+</body>
+</html>
