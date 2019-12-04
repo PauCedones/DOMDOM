@@ -7,10 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div id="ejercicio03">
+        <h1 id="titulo"></h1>
+        <input type="text" id="ejercicio04" />
+       
             <label>
-                <input type="checkbox" id="c"> Este es mi primer checkbox</input>
-                <input type="text" id="miInput" name="miInput"></input>
+                <input type="checkbox" id="c"/> Este es mi primer checkbox
+                <input type="text" id="miInput" name="miInput"/>
             </label>
     </div>
     <script>
@@ -51,6 +54,63 @@ asi cuando invoques la funcion, de ambas formas va a chequear o deschequear, no 
         cambiar_atributo.name = "miExInput";
 
     }
+
+// EJERCICIO 03
+
+/**
+  * Escribir un HTML con un div.
+  * Luego, por ID, modificar el contenido del DIV
+  * agregando una lista de 5 elementos.
+  * Una vez agregada la lista, agregar 
+  * programaticamente un numero a cada elemento
+  * 
+  * por ejemplo, si son 5 elementos deberia verse:
+  * 1
+  * 2
+  * 3
+  * 4
+  * 5
+  */
+
+    const mod_div = () => {
+
+        let cambiar = document.getElementById("ejercicio03");
+        cambiar.innerHTML = "<ul><li></li><li></li><li></li><li></li><li></li></ul>";
+        let lis= document.querySelectorAll("#ejercicio03 ul li");
+    
+        for (i=0; i<lis.length; i++){
+            lis[i].innerHTML = i+1; 
+        }
+    }
+
+// EJERCICIO 04
+
+/**
+   * Escribir una funcion que se llame changeTitle.
+   * Para esto deberemos tener dos elementos,
+   * un input, y un h1.
+   * Debemos tomar el valor del input y ponerlo como 
+   * el title. Si ya existe texto, reemplazarlo.
+   */
+
+   const changeTitle = () =>{
+
+       //primero tenes que identificar el H1
+       // tmb identificar el input 
+
+       let titulo = document.querySelector("#titulo"); //este es el H1
+       let input = document.querySelector("#ejercicio04"); // este es el input
+
+       titulo.innerHTML = input.value 
+       // aca cambiamos el h1 y 
+
+
+
+
+
+
+   }
+
 
 
     </script>
