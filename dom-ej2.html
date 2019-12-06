@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="ej01">Hola Paula</h1>
+    <h2 class="ej02">Hola Lujan</h2>
+
+
+    <script>
+    
+    
+    // 001
+/**
+ * Escribir una funcion que nos permita pasarle un elemento 
+ * y un color, y  le cambie el color de fondo al elemento.
+ */
+    
+    const cambiarFondo = (elemento,fondo) =>{
+        //tenes que llamar al h1 de alguna forma
+
+        let titulo = document.querySelector("."+elemento);
+
+        //tenes que cambiarle los atributos al h1
+
+        titulo.setAttribute("style", "background:" +fondo+";");
+
+    } 
+
+     //002 
+/**
+  * Modificar la funcion previa para que, si no se recibe
+  * un color por parametro, se busque un color de forma
+  * azarosamente.
+  */
+    const cambiarFondoAzar = (elemento,fondo) =>{
+        //tenes que llamar al elemento de alguna forma
+
+        let titulo = document.querySelector("."+elemento);
+
+        //tenes que cambiarle los atributos al elemento
+
+        
+
+       if(fondo==undefined){
+           //(!fondo)
+        var x = Math.floor(Math.random() * 256);
+        var y = Math.floor(Math.random() * 256);
+        var z = Math.floor(Math.random() * 256);
+
+        var fondo = "rgb(" + x + "," + y + "," + z + ")";
+        titulo.setAttribute("style", "background:"+fondo+";")
+
+       }else{
+           titulo.setAttribute("style", "background:" +fondo+";")
+       }
+    } 
+
+    
+    </script>
+</body>
+</html>
