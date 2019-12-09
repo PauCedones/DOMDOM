@@ -5,12 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
     <h1 class="ej01">Hola Paula</h1>
-    <h2 class="ej02">Hola Lujan</h2>
+    <h2 id="holi" class="ej02">Hola Lujan</h2>
+    <ul id="lista">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <ul>
+        <li><img src="https://media.giphy.com/media/13pbgo2DJqAo0/source.gif" alt="" width=250px></li>
+        <li><img src="https://media.giphy.com/media/l41lYs6dLc19noLeg/giphy.gif" alt="" width=250px></li>
+        <li><img src="https://media.giphy.com/media/3oEduI1g7RU3vudCBq/giphy.gif" alt="" width=250px></li>
+        <li> <img src="https://media.giphy.com/media/h3V39BqLGBkpa/giphy.gif" alt="" width=250px></li>
+    </ul>
+    
 
 
+<img src="" alt="">
     <script>
     
     
@@ -60,6 +81,84 @@
        }
     } 
 
+ // 003
+/**
+   * Crear una lista con varios elementos.
+   * Crear una funcion que asigne la clase
+   * "active" a uno de estos elementos seleccionados.
+   * Ademas al mismo tiempo tiene que eliminar
+   * la clase "active" del resto de los elementos.
+   * Asignarle algun estilo para diferenciar la clase
+   * "active" de cuando no se encuentra la misma.
+   */
+
+const setActive = (indice) =>{
+    let items = document.querySelectorAll("#lista > li");
+
+    for(let item of items){
+        item.classList.remove("active")
+    }
+
+    items[indice].classList.add("active")
+}
+
+/* Primero tenes que seleccionar la lista y nombrarla
+Segundo tenes que desactivar la clase "active" asi cuando
+la queres poner realmente no se va a salir despues
+Por ultimo tenes que agregarla por parametro 
+
+No te olvides  que en el CSS tenes que asignaar la clase active y ponerle algo
+para luego esa clase pasarla por parametro :3 */
+
+// 004
+
+/**
+ * Crear una funcion para aumentar tamaño 
+ * de un titulo y otra para reducirlo.
+ */
+
+ const masGrande = (elemento) =>{
+     //encontrar titulo a cambiar tamaño
+    let titulo = document.querySelector("."+elemento);
+    //encontrar tamaño de la fuente
+    //danger: tene en cuenta que se escribe todo junto pq lo esta tomando del js
+    let estilo = getComputedStyle(titulo).fontSize;
+    //ahora el font size es un string, tenes que hacer que te tome solo el numero
+    let tamano = parseInt(estilo);
+    //ahora tenes que concatenar todo y sumarlo
+    //danger: tene en cuenta que se escribe con guion en el medio porque esta tomandolo como css
+    titulo.setAttribute("style", "font-size:"+(tamano+1)+"px");
+    
+ }
+ const masChico = (elemento) =>{
+    let titulo = document.querySelector("."+elemento);
+    let estilo = getComputedStyle(titulo).fontSize;
+    let tamano = parseInt(estilo);
+    titulo.setAttribute("style", "font-size:"+(tamano-1)+"px");  
+ }
+
+ // 005
+ /**
+  * Crear una lista que contenga imagenes, de las 
+  * cuales se va a mostrar solo una.
+  * Crear una funcion que me permita ir cambiando
+  * de imagen cada vez que la ejecuto, segun el orden
+  * en que estan declaradas.
+  */
+
+  let indice = 0;
+
+ const changeImg =()=>{
+     
+     //tenes que crear un indice afuera de la funcion
+     //tenes que ocultar el resto de las imagenes (puede ser en js o css)
+     //usa la logica del ejercicio de active
+     //tenes que ir sumando los indices
+     // cuando incremente a la cantidad total de iamgenes tenes que hacer que vuelva a cero
+     //tenes que usar un IF cuando llegue a las 4 imagenes vuelve a empezar
+
+
+ }
     
     </script>
 </body>
