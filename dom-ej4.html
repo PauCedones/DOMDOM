@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>EJERCICIO 01</h1>
+        <form>
+            <input type="text" id="texto" />
+            <button type="button" id="agregar">agregar</button>
+        </form>
+        <ul id="lista">
+
+        </ul>
+        
+
+    </div>
+    <script>
+
+    // 001 
+/**
+ * Crear un TODO list, que tenga
+ * 1. un input para agregar nuevos TODO
+ * 2. Este input debe tener un button para poder
+ *    agregar el TODO desde el input
+ * 3. un button por cada TODO de la lista
+ *  para borrar el mismo.
+ * 4. Un checkbox, antes del texto de cada TODO,
+ *  que me permita tachar el elemento de la lista
+ *  como resuelto. 
+ */
+
+let agregar = document.querySelector("#agregar");
+agregar.addEventListener("click",()=>{
+    addItem();
+});
+const addItem =()=>{
+    let texto = document.querySelector("#texto"); 
+    let lista = document.querySelector("#lista");
+
+    //CREANDO LOS PUNTOS
+    let li = document.createElement("li"); //creaste el tag LI
+    let checkbox = document.createElement("input");
+
+    //CREANDO BOTON BORRAR
+    let borrar = document.createElement("button");
+    borrar.textContent= "Borrar";
+
+    //CREANDO EL CHECKBOX DE CADA ITEM
+    
+    checkbox.setAttribute("type","checkbox"); //le estamos diciendo al input que es
+    checkbox.addEventListener("change",()=>{
+        if(checkbox.checked==true){
+            li.setAttribute("style","text-decoration:line-through");
+        }else{
+            li.setAttribute("style","text-decoration:none");
+        }
+    });
+
+    //BORRAR
+    borrar.addEventListener("click",()=>{
+        li.remove();
+    });
+
+   
+    
+
+    li.textContent=texto.value; //para vincular el texto del input
+    lista.appendChild(li) //aca le estas diciendo donde tiene que ir
+    li.appendChild(checkbox); 
+    li.appendChild(borrar);
+
+
+
+ }
+
+
+
+    </script>
+</body>
+</html>
