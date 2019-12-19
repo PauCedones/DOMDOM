@@ -46,78 +46,52 @@
  *  como resuelto. 
  */
 
-let agregar = document.querySelector("#agregar");
+
+let agregar = document.querySelector("#agregar"); // Seleccionando el boton de agregar
+
+//HACIENDO EL EVENTO CUANDO TOCAS EL BOTON DE AGREGAR
 agregar.addEventListener("click",()=>{
     addItem();
 });
+
+
 const addItem =()=>{
+
+    //SELECCIONANDO LOS ELEMENTOS
     let texto = document.querySelector("#texto"); 
     let lista = document.querySelector("#lista");
 
-    //CREANDO LOS PUNTOS
+    //CREANDO ELEMENTOS NUEVOS
     let li = document.createElement("li"); //creaste el tag LI
-    let checkbox = document.createElement("input"); //creaste el elemento input, aun no sabe que es un checkbox
+    let checkbox = document.createElement("input"); // creaste el checkbox
+    let borrar = document.createElement("button"); // creando el boton de borrar
+    borrar.textContent= "Borrar"; //mostrando que dice el boton borrar
 
-    //CREANDO BOTON BORRAR
-    let borrar = document.createElement("button");
-    borrar.textContent= "Borrar";
-
-    //CREANDO EL CHECKBOX DE CADA ITEM
+    //MODIFICANDO EL CHECKBOX
     
     checkbox.setAttribute("type","checkbox"); //le estamos diciendo al input que es
+    //AGREGANDO EVENTO AL CHECKBOX
     checkbox.addEventListener("change",()=>{
-        if(checkbox.checked==true){
+        if(checkbox.checked==true){ //lo que pasa cuando esta seleccionado
             li.setAttribute("style","text-decoration:line-through");
-        }else{
+        }else{ // lo que pasa cuando no esta seleccionado
             li.setAttribute("style","text-decoration:none");
         }
     });
 
-    //BORRAR
+    //AGREGANDO EVENTO PARA EL BOTON DE BORRAR
     borrar.addEventListener("click",()=>{
         li.remove();
     });
 
-    li.textContent=texto.value; //para vincular el texto del input
-    lista.appendChild(li); //aca le estas diciendo donde tiene que ir
+    // VINCULANDO EL TEXTO DEL INPUT
+    li.textContent=texto.value;
+
+    //DONDE VA A IR CADA ELEMENTO
+    lista.appendChild(li)
     li.appendChild(checkbox); 
     li.appendChild(borrar);
  }
-
-  // 002
-/**
- * Tomar el input del ejercicio anterior y hacer que 
- * cambie sus bordes de color y de ancho cuando 
- * hacemos foco(focus, hacemos click en el recuadro) en el, 
- * y que esos mismos bordes y color vuelvan al 
- * estado anterior cuando sacamos el foco (blur).
- */
-
-
- let agregarNuevo = document.querySelector("#agregar1");
-agregarNuevo.addEventListener("click",()=>{
-    addItemNuevo();
-});
-
-let cambiarColor = document.querySelector("#agregar1");
-let texto = document.querySelector("#texto1");
-texto.addEventListener("focus",()=>{
-    let texto = document.querySelector("#texto1"); 
-    //cuando pones algo entre comillas, va sin comas, solo con espacio 
-    texto.setAttribute("style","border:50px solid pink;");
-});
-
-texto.addEventListener("blur",()=>{
-    texto.removeAttribute("style","border-color:pink;");
-});
-
-const addItemNuevo =()=>{
-    let texto = document.querySelector("#texto1"); 
-    let lista = document.querySelector("#lista1");
-
-    //CREANDO LOS PUNTOS
-    let li = document.createElement("li"); //creaste el tag LI
-    let checkbox = document.createElement("input");
 
     //CREANDO BOTON BORRAR
     let borrar = document.createElement("button");

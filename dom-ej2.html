@@ -9,6 +9,9 @@
         .active{
             background-color: red;
         }
+        #lista .li{
+            display:none;
+        }
     </style>
 </head>
 <body>
@@ -22,7 +25,7 @@
         <li>5</li>
     </ul>
 
-    <ul>
+    <ul id="lista">
         <li><img src="https://media.giphy.com/media/13pbgo2DJqAo0/source.gif" alt="" width=250px></li>
         <li><img src="https://media.giphy.com/media/l41lYs6dLc19noLeg/giphy.gif" alt="" width=250px></li>
         <li><img src="https://media.giphy.com/media/3oEduI1g7RU3vudCBq/giphy.gif" alt="" width=250px></li>
@@ -58,7 +61,7 @@
   * un color por parametro, se busque un color de forma
   * azarosamente.
   */
-    const cambiarFondoAzar = (elemento,fondo) =>{
+    const cambiarFondoAzar = (elemento,fondo = undefined) =>{
         //tenes que llamar al elemento de alguna forma
 
         let titulo = document.querySelector("."+elemento);
@@ -151,14 +154,20 @@ para luego esa clase pasarla por parametro :3 */
  const changeImg =()=>{
      
      //tenes que crear un indice afuera de la funcion
-     //tenes que ocultar el resto de las imagenes (puede ser en js o css)
+     //tenes que ocultar el resto de las imagenes (solo en css)
      //usa la logica del ejercicio de active
      //tenes que ir sumando los indices
      // cuando incremente a la cantidad total de iamgenes tenes que hacer que vuelva a cero
      //tenes que usar un IF cuando llegue a las 4 imagenes vuelve a empezar
 
-
- }
+    const imgs =document.querySelectorAll("#lista > li");
+    imgs[indice].style.display = "none";
+    indice++;
+    if(indice ==imgs.length){
+        indice=0;
+    }
+    imgs[indice].style.display="block";
+ };
     
     </script>
 </body>
