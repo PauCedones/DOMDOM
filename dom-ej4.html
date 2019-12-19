@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+
+    </style>
 </head>
 <body>
     <div>
@@ -16,8 +19,17 @@
         <ul id="lista">
 
         </ul>
-        
+    </div>
 
+    <div>
+        <h1>EJERCICIO 02</h1>
+        <form>
+            <input type="text" id="texto1" />
+            <button type="button" id="agregar1">agregar</button>
+        </form>
+        <ul id="lista1">
+
+        </ul>
     </div>
     <script>
 
@@ -44,6 +56,67 @@ const addItem =()=>{
 
     //CREANDO LOS PUNTOS
     let li = document.createElement("li"); //creaste el tag LI
+    let checkbox = document.createElement("input"); //creaste el elemento input, aun no sabe que es un checkbox
+
+    //CREANDO BOTON BORRAR
+    let borrar = document.createElement("button");
+    borrar.textContent= "Borrar";
+
+    //CREANDO EL CHECKBOX DE CADA ITEM
+    
+    checkbox.setAttribute("type","checkbox"); //le estamos diciendo al input que es
+    checkbox.addEventListener("change",()=>{
+        if(checkbox.checked==true){
+            li.setAttribute("style","text-decoration:line-through");
+        }else{
+            li.setAttribute("style","text-decoration:none");
+        }
+    });
+
+    //BORRAR
+    borrar.addEventListener("click",()=>{
+        li.remove();
+    });
+
+    li.textContent=texto.value; //para vincular el texto del input
+    lista.appendChild(li); //aca le estas diciendo donde tiene que ir
+    li.appendChild(checkbox); 
+    li.appendChild(borrar);
+ }
+
+  // 002
+/**
+ * Tomar el input del ejercicio anterior y hacer que 
+ * cambie sus bordes de color y de ancho cuando 
+ * hacemos foco(focus, hacemos click en el recuadro) en el, 
+ * y que esos mismos bordes y color vuelvan al 
+ * estado anterior cuando sacamos el foco (blur).
+ */
+
+
+ let agregarNuevo = document.querySelector("#agregar1");
+agregarNuevo.addEventListener("click",()=>{
+    addItemNuevo();
+});
+
+let cambiarColor = document.querySelector("#agregar1");
+let texto = document.querySelector("#texto1");
+texto.addEventListener("focus",()=>{
+    let texto = document.querySelector("#texto1"); 
+    //cuando pones algo entre comillas, va sin comas, solo con espacio 
+    texto.setAttribute("style","border:50px solid pink;");
+});
+
+texto.addEventListener("blur",()=>{
+    texto.removeAttribute("style","border-color:pink;");
+});
+
+const addItemNuevo =()=>{
+    let texto = document.querySelector("#texto1"); 
+    let lista = document.querySelector("#lista1");
+
+    //CREANDO LOS PUNTOS
+    let li = document.createElement("li"); //creaste el tag LI
     let checkbox = document.createElement("input");
 
     //CREANDO BOTON BORRAR
@@ -67,17 +140,14 @@ const addItem =()=>{
     });
 
    
-    
+    // aca dependiendo el orden es como va todo
 
-    li.textContent=texto.value; //para vincular el texto del input
-    lista.appendChild(li) //aca le estas diciendo donde tiene que ir
     li.appendChild(checkbox); 
+    li.appendChild(document.createTextNode(texto.value));// otra forma de vincular el texto del input
     li.appendChild(borrar);
-
-
-
- }
-
+    //li.textContent=texto.value; //para vincular el texto del input
+    lista.appendChild(li) //aca le estas diciendo donde tiene que ir
+}
 
 
     </script>
